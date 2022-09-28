@@ -1,0 +1,24 @@
+CREATE TABLE IF NOT EXISTS User (
+    id VARCHAR(3) PRIMARY KEY,
+    has_labels BOOLEAN NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Activity (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id VARCHAR(3) NOT NULL,
+    transportation_mode VARCHAR(50),
+    start_date_time DATETIME NOT NULL,
+    end_date_time DATETIME NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE ON UPDATE NO ACTION
+);
+
+CREATE TABLE IF NOT EXISTS TrackPoint (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    activity_id INT NOT NULL,
+    lat DOUBLE NOT NULL,
+    lon DOUBLE NOT NULL,
+    altitude DOUBLE NOT NULL,
+    date_days DOUBLE NOT NULL,
+    date_time DATETIME NOT NULL,
+    FOREIGN KEY (activity_id) REFERENCES Activity(id) ON DELETE CASCADE ON UPDATE NO ACTION
+);
