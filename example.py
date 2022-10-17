@@ -230,6 +230,8 @@ class UserActivity:
                 """
         self.fetch_data(query)
     
+    # a) Find the year with the most activities. 
+    # b) Is this also the year with most recorded hours?
     def query_6(self):
         query_one = """SELECT
                             YEAR(A.START_DATE_TIME) Year,
@@ -354,8 +356,16 @@ def main():
     program = None
     try:
         program = UserActivity()
-        # program.truncate_table('User')
-        # program.insert_data('dataset\dataset')
+        
+        # Create tables
+        program.create_table('User')
+        program.create_table('Activity')
+        program.create_table('TrackPoint')
+        
+        # Load the data to DB
+        program.insert_data('dataset\dataset')
+        
+        # Perform Quesries
         program.query_1()
         program.query_2()
         program.query_3()
