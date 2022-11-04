@@ -632,19 +632,19 @@ def main():
         program = ExampleProgram()
 
         # create the collections
-        # program.create_coll(collection_name="User")
-        # program.create_coll(collection_name="Activity")
-        # program.create_coll(collection_name="TrackPoint")
+        program.create_coll(collection_name="User")
+        program.create_coll(collection_name="Activity")
+        program.create_coll(collection_name="TrackPoint")
 
         # Load the documents to collection
-        # program.insert_data('dataset')
+        program.insert_data('dataset')
 
-        # program.query_1()
-        # program.query_2()
-        # program.query_3()
-        # program.query_4()
-        # program.query_5()
-        # program.query_6()
+        program.query_1()
+        program.query_2()
+        program.query_3()
+        program.query_4()
+        program.query_5()
+        program.query_6()
         program.query_7()
         program.query_8()
         program.query_9()
